@@ -1,14 +1,11 @@
 import axios from "axios";
-
-interface Identifiable {
-    id?: number;
-}
+import {Identifiable} from "./Model";
 
 export class Synching<T extends Identifiable> {
 
     constructor(private url: string) {}
 
-    async fetch(id: number): Promise<T | {}> {
+    fetch = async (id: number): Promise<T | {}> =>{
         try {
             const data = await axios.get(`${this.url}${id}`);
             return  data.data;
@@ -18,7 +15,8 @@ export class Synching<T extends Identifiable> {
         }
     }
 
-    async save(object: T): Promise<T | {}> {
+    save = async (object: T): Promise<T | {}> => {
+        console.log(object);
         try {
             const id = object.id;
             let data = {};

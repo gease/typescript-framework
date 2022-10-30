@@ -1,7 +1,6 @@
 import {User} from "./model/User";
-import axios from "axios";
 
-const user = new User({age: 50, name: "hujlo"});
+const user = User.buildUser({age: 50, name: "drain brain"});
 user.on('save',  () => {console.log('user saved')});
 user.save();
-const putler = user.get('name');
+const brainDrain = user.get('name');
