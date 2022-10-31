@@ -40,8 +40,9 @@ export abstract class Model<T extends Identifiable> {
         return this.events.trigger;
     }
 
-    get set() {
-        return this.attributes.set;
+    set = (params: T | {}): void => {
+        this.attributes.set(params);
+        this.trigger('model_change');
     }
 
     get get() {

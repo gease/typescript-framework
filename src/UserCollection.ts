@@ -8,6 +8,11 @@ export abstract class Collection<K extends Identifiable> {
     protected abstract events: EventingInterface;
     protected abstract synching: SynchingInterface<K>;
     abstract fetch(): void;
+
+    get = (i: number): Model<K> => {
+        return this.models[i];
+    }
+
     get on() {
         return this.events.on;
     }
