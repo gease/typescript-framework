@@ -15,8 +15,17 @@ export class Synching<T extends Identifiable> {
         }
     }
 
+    fetchAll = async ():Promise<T[]> => {
+        try {
+            const data = await axios.get(`${this.url}`);
+            return  data.data;
+        } catch (e) {
+            console.log(e);
+            return [];
+        }
+    }
+
     save = async (object: T): Promise<T | {}> => {
-        console.log(object);
         try {
             const id = object.id;
             let data = {};

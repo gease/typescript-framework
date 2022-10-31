@@ -13,7 +13,7 @@ export class User extends Model<UserParams>{
 
     static buildUser = (params: UserParams): User => {
 
-        return new User (new Eventing(), new Synching<UserParams>('http://localhost:3000/users/'), new Attributes<UserParams>(params))
+        return new this (new Eventing(), new Synching<UserParams>('http://localhost:3000/users/'), new Attributes<UserParams>(params))
     }
 
 }

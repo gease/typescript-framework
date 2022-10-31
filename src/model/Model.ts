@@ -13,6 +13,7 @@ export interface EventingInterface {
 
 export interface SynchingInterface<T extends Identifiable>{
     fetch(id: number): Promise<T | {}>
+    fetchAll(): Promise<T[]>
     save (object: T): Promise<T | {}>
 }
 
